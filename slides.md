@@ -1,662 +1,770 @@
 ---
-# try also 'default' to start simple
-theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://cover.sli.dev
-# some information about your slides (markdown enabled)
-title: Welcome to Slidev
+theme: default
+title: Secomp 2026 - Minicurso TypeScript
 info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
-# apply UnoCSS classes to the current slide
+  ## Módulo I
+  Introdução ao TypeScript
 class: text-center
-# https://sli.dev/features/drawing
-drawings:
-  persist: false
-# slide transition: https://sli.dev/guide/animations.html#slide-transitions
 transition: slide-left
-# enable Comark Syntax: https://comark.dev/syntax/markdown
-comark: true
-# duration of the presentation
-duration: 35min
+mdc: true
 ---
 
-# Welcome to Slidev
-
-Presentation slides for developers
-
-<div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  Press Space for next page <carbon:arrow-right />
-</div>
-
-<div class="abs-br m-6 text-xl">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="slidev-icon-btn">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
-    <carbon:logo-github />
-  </a>
-</div>
-
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
+# Secomp 2026 - Minicurso TypeScript
 
 ---
-transition: fade-out
+
+# Primeiramente, Quem Sou Eu?
+
+- Rubens Pinheiro Gonçalves Cavalcante
+- Vice President Lead Software Engineer @ JP Morgan Chase
+- Ex Facebook / Meta
+- ~18 anos trabalhando com TI, 5 anos na Alemanha, quase 5 no Reino Unido
+- Usando TypeScript desde sua versão 1.0 (~2015)
+- Turma 2007.2 Ciência da Computação - UECE
+
 ---
 
-# What is Slidev?
+# Módulo I
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
+Introdução • Setup • Sintaxe • Build
 
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - themes can be shared and re-used as npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embed Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
-<br>
-<br>
+## Agenda
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
+- O que é TypeScript?
+- Compilador TypeScript
+- VSCode + TS Server
+- Sintaxe básica
+- tsconfig
+- Hello World
+- Integração com bundlers
 
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
--->
+---
 
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
+# O que é TypeScript?
+
+## TypeScript é um superset do JavaScript
+
+- Todo JS válido também é TS válido
+- Mas TS no é um JS válido
+
+## O que o TS adiciona?
+
+- Tipagem estática
+- Melhor autocomplete
+- Refatoração segura
+- Melhor DX
+- Mais previsibilidade
+
+---
+
+# Mas qual o problema do JavaScript?
+
+JavaScript é flexível.
+
+Às vezes... flexível até demais:
+
+```js {monaco-run}
+function sum(a, b) {
+  return a + b;
 }
-</style>
 
-<!--
-Here is another comment.
--->
-
----
-transition: slide-up
-level: 2
----
-
-# Navigation
-
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
-
-## Keyboard Shortcuts
-
-|                                                     |                             |
-| --------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                 | next animation or slide     |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                       | previous slide              |
-| <kbd>down</kbd>                                     | next slide                  |
-
-<!-- https://sli.dev/guide/animations.html#click-animation -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-layout: two-cols
-layoutClass: gap-16
----
-
-# Table of contents
-
-You can use the `Toc` component to generate a table of contents for your slides:
-
-```html
-<Toc minDepth="1" maxDepth="1" />
+console.log(sum("10", 20));
 ```
 
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
-
-::right::
-
-<Toc text-sm minDepth="1" maxDepth="2" />
-
----
-layout: image-right
-image: https://cover.sli.dev
 ---
 
-# Code
+# JavaScript vs TypeScript
 
-Use code snippets and get the highlighting directly, and even types hover!
+## JavaScript
 
-```ts [filename-example.ts] {all|4|6|6-7|9|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
-import { computed, ref } from 'vue'
-
-const count = ref(0)
-const doubled = computed(() => count.value * 2)
-
-doubled.value = 2
-```
-
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="342" color="#953" width="2" arrowSize="1" />
-
-<!-- This allow you to embed external code blocks -->
-<<< @/snippets/external.ts#snippet
-
-<!-- Footer -->
-
-[Learn more](https://sli.dev/features/line-highlighting)
-
-<!-- Inline style -->
-<style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
-<!--
-Notes can also sync with clicks
-
-[click] This will be highlighted after the first click
-
-[click] Highlighted with `count = ref(0)`
-
-[click:3] Last click (skip two clicks)
--->
-
----
-level: 2
----
-
-# Shiki Magic Move
-
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
-
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
-
-````md magic-move {lines: true}
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-})
-```
-
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John Doe',
-        books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
-        ]
-      }
-    }
-  }
+```js
+function sum(a, b) {
+  return a + b;
 }
 ```
+
+<div h-8 />
+
+## TypeScript
 
 ```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: 'John Doe',
-      books: [
-        'Vue 2 - Advanced Guide',
-        'Vue 3 - Basic Guide',
-        'Vue 4 - The Mystery'
-      ]
-    }
-  })
+function sum(a: number, b: number): number {
+  return a + b;
 }
 ```
 
-Non-code blocks are ignored.
+---
 
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
+# Erros antes da execução
+
+```ts twoslash
+function exibirNome(nome: string) {
+  console.log(nome.toUpperCase());
 }
-</script>
-```
-````
 
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>`, `<BlueSky/>`, and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
+exibirNome(10);
 ```
 
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
-
----
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
-check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
+<div h-4 />
 
 ---
 
-# Clicks Animations
-
-You can add `v-click` to elements to add a click animation.
-
-<div v-click>
-
-This shows up when you press <kbd>space</kbd> or <kbd>right</kbd>, or click outside the slide on the right.
-
-```html
-<div v-click>This shows up when you trigger a click animation.</div>
-```
-
-</div>
-
-<p v-click>
-You can also add modifiers to change the animation:
-</p>
-
-<div class="grid gap-3 mt-4 text-sm" style="grid-template-columns: repeat(3, 1fr) 1.5fr 1fr">
-  <div v-after.up class="p-3 rounded border border-primary/20 bg-primary/10">
-    <div class="font-mono text-xs opacity-60 mb-1">v-click.up</div>
-    <div>Slide from bottom</div>
-  </div>
-  <div v-click.fade-in class="p-3 rounded border border-primary/30 bg-primary/15">
-    <div class="font-mono text-xs opacity-60 mb-1">v-click.fade-in</div>
-    <div>Fade in</div>
-  </div>
-  <div v-click.fade class="p-3 rounded border border-primary/40 bg-primary/20">
-    <div class="font-mono text-xs opacity-60 mb-1">v-click.fade</div>
-    <div>Dim (0.5 opacity)</div>
-  </div>
-  <div v-click.fade.right.scale class="p-3 rounded border border-primary/50 bg-primary/25">
-    <div class="font-mono text-xs opacity-60 mb-1">v-click.fade.right.scale</div>
-    <div>Composed</div>
-  </div>
-  <div v-click.none class="p-3 rounded border border-primary/60 bg-primary/30">
-    <div class="font-mono text-xs opacity-60 mb-1">v-click.none</div>
-    <div>No transition</div>
-  </div>
-</div>
-
-<v-click>
-
-The <span v-mark.red="7"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="8">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
-
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
-
-</v-click>
-
-<div v-click mt-12>
-
-[Learn more](https://sli.dev/guide/animations#click-animation)
-
-</div>
-
----
-
-# Motions
-
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }"
-  :click-3="{ x: 80 }"
-  :leave="{ x: 1000 }"
->
-  Slidev
-</div>
-```
-
-<div class="w-60 relative">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 30, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn more](https://sli.dev/guide/animations.html#motion)
-
-</div>
-
----
-
-# $\LaTeX$
-
-$\LaTeX$ is supported out-of-box. Powered by [$\KaTeX$](https://katex.org/).
-
-<div h-3 />
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$ {1|3|all}
-\begin{aligned}
-\nabla \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
-\nabla \cdot \vec{B} &= 0 \\
-\nabla \times \vec{E} &= -\frac{\partial\vec{B}}{\partial t} \\
-\nabla \times \vec{B} &= \mu_0\vec{J} + \mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}
-\end{aligned}
-$$
-
-[Learn more](https://sli.dev/features/latex)
-
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
+# Como o TS funciona?
 
 ```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
+flowchart LR
+    A[TypeScript .ts] --> B[tsc]
+    B --> C[JavaScript .js]
+    C --> D[Navegador / Node]
 ```
 
-```plantuml {scale: 0.7}
-@startuml
+O compilador TypeScript (`tsc`) é responsável por:
 
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
+- realizar a checagem de tipos
+- transpilar TypeScript para JavaScript
+- gerar diferentes formatos de módulos
+
+O código gerado pode utilizar:
+
+- ESM (EcmaScript Modules)
+- CommonJS (Node.js)
+- UMD (Universal Module Definition)
+
+---
+
+# Instalando TypeScript
+
+```bash
+npm install -D typescript
+```
+
+ou
+
+```bash
+pnpm install -D typescript
+```
+
+ou
+
+```bash
+yarn add -D typescript
+```
+
+---
+
+# Inicializando projeto TS
+
+Utilizaremos o cliente npx (utilitario do npm para executar binarios) e passar a flag de inicialização para o compilador:
+
+```bash
+npm install -D typescript
+npx tsc --init
+```
+
+Isso cria o arquivo de config padrão:
+
+```txt
+tsconfig.json
+```
+
+Obs: Veremos mais a frente sobre ele e como funciona
+
+---
+
+# Sintaxe Básica
+
+## Primitivos
+
+```ts twoslash
+const name: string = "Lucas";
+const age: number = 30;
+const active: boolean = true;
+```
+
+---
+
+# Arrays
+
+```ts
+const numbers: number[] = [1, 2, 3];
+
+const names: string[] = ["Ana", "João"];
+```
+
+---
+
+# Objetos
+
+```ts
+const user: {
+  name: string;
+  age: number;
+} = {
+  name: "Lucas",
+  age: 30,
+};
+```
+
+---
+
+# Tipos e Interfaces
+
+```ts {monaco}
+type User = {
+  name: string;
+  age: number;
+};
+
+interface Address {
+  postCode: string;
+  city: string;
+  country: string;
+}
+```
+
+---
+
+# Usando tipos e interfaces
+
+```ts {monaco}
+type User = {
+  name: string;
+  age: number;
+};
+
+interface Address {
+  postCode: string;
+  city: string;
+  country: string;
 }
 
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
+const user: User = {
+  name: "Lucas",
+  age: 30,
+};
+
+const address: Address = {
+  postCode: "123-456",
+  city: "Fortress",
+  country: "Republic of IT",
+};
+```
+
+---
+
+# Afinal qual a diferença?
+
+Type é mais poderoso
+
+type consegue representar:
+
+- unions
+- primitives
+- tuples
+- mapped types
+- conditional types
+
+(Veremos todos no modulo 2)
+
+---
+
+# Interfaces foram construidos ao redor de Classes
+
+E herda muito de onde TS se baseou, o C#. Por exemplo, isso é valido:
+
+```ts {monaco-run}
+interface User {
+  name: string;
 }
 
-cloud {
-  [Example 1]
+interface User {
+  age: number;
 }
 
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
+class UserImpl implements User {
+  name: string = "";
+  age: number = 0;
+}
+```
+
+Interfaces se mesclam em um escopo de mesmo namespace, dessa forma alteraçöes de
+interface podem ser expandidas mais facilmente.
+
+---
+
+# E interfaces podem ser extendidas
+
+Conceitos básicos de herança:
+
+```ts twoslash
+interface Person {
+  name: string;
+}
+
+interface Citzen extends Person {
+  country: string;
+}
+
+const citzen: Citzen = {
+  name: "Rubens",
+  country: "Brasil",
+};
+
+const person: Person = citzen;
+```
+
+---
+
+# Takeout
+
+## Minha opinião: use somente Types
+
+Types conseguem fazer tudo o que interfaces fazem, porém o inverso
+não é verdadeiro.
+
+### Mas nunca... nunca?
+
+Em casos especificos como bibliotecas, interfaces fornecem mais facilidades (e menos boilerplate) para extensão, nesses casos pode
+ser considerado.
+
+---
+
+# Funções
+
+```ts {monaco}
+function sum(a: number, b: number): number {
+  return a + b;
+}
+```
+
+---
+
+# Void
+
+```ts {monaco}
+function log(message: string): void {
+  console.log(message);
+}
+```
+
+---
+
+# Optional Parameters
+
+```ts {monaco}
+function greet(name?: string) {
+  console.log(name);
+}
+```
+
+---
+
+# Auto inferência
+
+```ts {monaco}
+const language = "TypeScript";
+```
+
+O TS entende automaticamente:
+
+```ts
+string;
+```
+
+---
+
+# Inferência em funções
+
+```ts {monaco}
+function multiply(a: number, b: number) {
+  return a * b;
+}
+```
+
+O retorno é inferido automaticamente.
+
+---
+
+# Type Aliases
+
+```ts {monaco}
+type ID = string | number;
+
+const userId: ID = 10;
+```
+
+---
+
+# Union Types
+
+```ts {monaco}
+let value: string | number;
+
+value = "hello";
+value = 10;
+```
+
+---
+
+# Literal Types
+
+```ts {monaco}
+type Theme = "dark" | "light";
+
+const theme: Theme = "dark";
+```
+
+---
+
+# Any
+
+```ts {monaco}
+let value: any = 10;
+
+value = "hello";
+value = true;
+```
+
+⚠️ Evite usar `any`
+
+---
+
+# Unknown
+
+```ts {monaco}
+let value: unknown;
+
+value = "hello";
+value = 10;
+```
+
+Mais seguro que `any`.
+
+---
+
+# Voltando ao tsconfig
+
+Vamos abrir e ver o que foi gerado:
+
+<div max-h-80 overflow-auto>
+
+```json twoslash
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    // File Layout
+    // "rootDir": "./src",
+    // "outDir": "./dist",
+
+    // Environment Settings
+    // See also https://aka.ms/tsconfig/module
+    "module": "nodenext",
+    "target": "esnext",
+    "types": [],
+    // For nodejs:
+    // "lib": ["esnext"],
+    // "types": ["node"],
+    // and npm install -D @types/node
+
+    // Other Outputs
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // Stricter Typechecking Options
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // Style Options
+    // "noImplicitReturns": true,
+    // "noImplicitOverride": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noFallthroughCasesInSwitch": true,
+    // "noPropertyAccessFromIndexSignature": true,
+
+    // Recommended Options
+    "strict": true,
+    "jsx": "react-jsx",
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true
   }
-  frame "Foo" {
-    [Frame 4]
-  }
 }
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
 ```
 
 </div>
 
-Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
-
----
-foo: bar
-dragPos:
-  square: 770,68,76,_
 ---
 
-# Draggable Elements
+# Muita informação, vamos focar no básico:
 
-Double-click on the draggable elements to edit their positions.
-
-<br>
-
-###### Directive Usage
-
-```md
-<img v-drag="'square'" src="https://sli.dev/logo.png">
+```json
+{
+  "compilerOptions": {
+    "target": "esnext", // Precisamos polyfill para APIs nao suportadas?
+    "module": "nodenext", // Sistema de modulos do output
+    "strict": true, // Checagens como noImplicitAny, strictNullChecks, etc
+    "rootDir": "./src", // Raiz do codigo fonte
+    "outDir": "./dist", // Diretorio de saida
+    "sourceMap": true // Sourcemaps, normalmente usado em ambiente de desenvolvimento
+  }
+}
 ```
 
-<br>
-
-###### Component Usage
-
-```md
-<v-drag text-3xl>
-  <div class="i-carbon:arrow-up" />
-  Use the `v-drag` component to have a draggable container!
-</v-drag>
-```
-
-<v-drag pos="663,206,261,_,-15">
-  <div text-center text-3xl border border-main rounded>
-    Double-click me!
-  </div>
-</v-drag>
-
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-
-###### Draggable Arrow
-
-```md
-<v-drag-arrow two-way />
-```
-
-<v-drag-arrow pos="136,536,719,-330" two-way op70 />
-
 ---
-src: ./pages/imported-slides.md
-hide: false
----
+
+# Estrutura básica
+
+Normalmente seu projeto vai iniciar mais ou menos assim:
+
+```txt
+project/
+├── src/
+│   └── index.ts
+├── dist/
+├── package.json
+└── tsconfig.json
+```
 
 ---
 
-# Monaco Editor
+# Primeiro arquivo TS
 
-Slidev provides built-in Monaco Editor support.
-
-Add `{monaco}` to the code block to turn it into an editor:
-
-```ts {monaco}
-import { ref } from 'vue'
-import { emptyArray } from './external'
-
-const arr = ref(emptyArray(10))
-```
-
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
+## `src/index.ts`
 
 ```ts {monaco-run}
-import { version } from 'vue'
-import { emptyArray, sayHello } from './external'
+const message: string = "Olá Secomp!";
 
-sayHello()
-console.log(`vue ${version}`)
-console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-2)!], [1, 1]))
+console.log(message);
 ```
 
 ---
-layout: center
-class: text-center
+
+# Compilando
+
+```bash
+npx tsc
+```
+
+Resultado:
+
+```txt
+dist/index.js
+```
+
 ---
 
-# Learn More
+# Output
 
-[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
+## JavaScript gerado
 
-<PoweredBySlidev mt-10 />
+```js {monaco}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const message = "Olá Secomp!";
+console.log(message);
+//# sourceMappingURL=index.js.map
+```
+
+<div h-8 />
+
+## Tipos gerados
+
+Nao expomos nenhum tipo, entao isso é gerado 'vazio'
+
+```ts {monaco}
+export {};
+//# sourceMappingURL=index.d.ts.map
+```
+
+---
+
+# Setup: VSCode + TypeScript
+
+O VSCode possui integração nativa com TypeScript.
+
+Você ganha:
+
+- autocomplete
+- inferência
+- quick fixes
+- refatoração
+- validação em tempo real
+
+---
+
+# O VSCode usa: TypeScript Server (tsserver)
+
+Responsável por:
+
+- entender tipos
+- validar código
+- sugerir correções
+
+---
+
+# Exemplo de correção simples:
+
+```ts twoslash
+const user = {
+  name: "Lucas",
+};
+
+user.email;
+```
+
+O VSCode acusa o erro imediatamente!
+
+---
+
+# Hello World completo
+
+## `src/index.ts`
+
+```ts
+interface User {
+  name: string;
+}
+
+const user: User = {
+  name: "Lucas",
+};
+
+console.log(`Hello ${user.name}`);
+```
+
+---
+
+# Compilando e executando
+
+```bash
+npx tsc
+node dist/index.js
+```
+
+---
+
+# Integração com Bundlers
+
+Hoje o TS normalmente roda junto com bundlers.
+
+Exemplos:
+
+- Webpack
+- Vite
+- Parcel
+- esbuild
+
+---
+
+# Webpack + TS
+
+Instalando dependências:
+
+```bash
+npm install -D \
+  webpack \
+  webpack-cli \
+  ts-loader
+```
+
+---
+
+# Exemplo webpack.config.js
+
+```js
+module.exports = {
+  entry: "./src/index.ts",
+  module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        use: "ts-loader",
+      },
+    ],
+  },
+};
+```
+
+---
+
+# Alternativa moderna: Vite
+
+```bash
+npm create vite@latest
+```
+
+Escolher:
+
+```txt
+TypeScript
+```
+
+---
+
+# Por que Vite é popular?
+
+- Muito rápido
+- Setup simples
+- TS nativo
+- Excelente DX
+
+---
+
+# Fluxo moderno
+
+Substituimos tsc pelo bundler:
+
+```mermaid
+flowchart LR
+    A[TypeScript] --> B[Vite/Webpack]
+    B --> C[JavaScript]
+    C --> D[Browser]
+```
+
+<div h-8 />
+
+## Mas ainda usamos o tsc?
+
+Sim, normalmente utilizaremos não para transpilar, mas para checagem de tipos limpa:
+
+```bash
+tsc --noEmit
+```
+
+Assim antes de compilar o projeto inteiro, podemos checar (por exemplo, na Integração Contínua) se existe erros no projeto.
+
+---
+
+# Recapitulando
+
+Hoje vimos:
+
+- O que é TS
+- Compilador
+- VSCode
+- Tipos básicos
+- Interfaces
+- Funções
+- tsconfig
+- Build
+- Bundlers
+
+---
+
+# Próximo módulo
+
+## TypeScript Avançado
+
+- Generics
+- keyof
+- mapped types
+- conditional types
+- utility types
+
+---
+
+# Obrigado 🚀
