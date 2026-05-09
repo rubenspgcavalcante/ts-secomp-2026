@@ -1,6 +1,0 @@
-import{$a as e,$o as t,Mo as n,Zo as r,bo as i,co as a,eo as o,io as s,ro as c}from"./modules/shiki-BSFfpaZY.js";import{v as l,y as u}from"./index-BNQY6OYD.js";import{t as d}from"./slidev/CodeBlockWrapper-Cx7SDh6x.js";import{t as f}from"./slidev/default-DU6GGmU1.js";var p={__name:`slides.md__slidev_32`,setup(p){let{$slidev:m,$nav:h,$clicksContext:g,$clicks:_,$page:v,$renderContext:y,$frontmatter:b}=u();return g.setup(),(u,p)=>{let m=d;return i(),o(f,t(a(r(l)(r(b),31))),{default:n(()=>[p[1]||=e(`h1`,null,`Estrutura básica`,-1),p[2]||=e(`p`,null,`Normalmente seu projeto vai iniciar mais ou menos assim:`,-1),s(m,{title:``,ranges:[]},{default:n(()=>[...p[0]||=[e(`pre`,{class:`shiki shiki-themes vitesse-dark vitesse-light slidev-code`,style:{"--shiki-dark":`#dbd7caee`,"--shiki-light":`#393a34`,"--shiki-dark-bg":`#121212`,"--shiki-light-bg":`#ffffff`}},[e(`code`,{class:`language-txt`},[e(`span`,{class:`line`},[e(`span`,null,`project/`)]),c(`
-`),e(`span`,{class:`line`},[e(`span`,null,`├── src/`)]),c(`
-`),e(`span`,{class:`line`},[e(`span`,null,`│   └── index.ts`)]),c(`
-`),e(`span`,{class:`line`},[e(`span`,null,`├── dist/`)]),c(`
-`),e(`span`,{class:`line`},[e(`span`,null,`├── package.json`)]),c(`
-`),e(`span`,{class:`line`},[e(`span`,null,`└── tsconfig.json`)])])],-1)]]),_:1})]),_:1},16)}}};export{p as default};

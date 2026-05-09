@@ -1,6 +1,7 @@
 ---
 theme: default
 title: Secomp 2026 - Minicurso TypeScript
+base: /ts-secomp-2026/
 info: |
   ## Módulo I
   Introdução ao TypeScript
