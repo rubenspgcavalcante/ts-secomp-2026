@@ -3,16 +3,25 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "slidev build --out docs",
+    "build": "slidev build",
     "dev": "slidev --open",
-    "export": "slidev export"
+    "export": "slidev export",
+    "rename": "tsx scripts/rename-slides.ts"
   },
   "dependencies": {
     "@slidev/cli": "^52.15.1",
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
+    "lucide-vue-next": "^1.0.0",
     "monaco-editor": "^0.55.1",
     "monaco-editor-vue3": "^1.0.5",
     "vue": "^3.5.33"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.2",
+    "prettier": "^3.8.3",
+    "prettier-plugin-slidev": "^1.0.5",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
   }
 }
