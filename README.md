@@ -1,6 +1,6 @@
 # Mini Curso TypeScript - Secomp 2026 UECE
 
-Para ver os [slides para o Mini Curso, clique aqui](https://rubenspgcavalcante.github.io/ts-secomp-2026/)!
+Para ver os slides do mini curso, [clique aqui](https://rubenspgcavalcante.github.io/ts-secomp-2026/)!
 
 ## Rodando Localmente
 

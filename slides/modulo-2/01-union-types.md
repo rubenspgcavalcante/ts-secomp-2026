@@ -1,6 +1,8 @@
 # Union Types
 
-Permitem múltiplos tipos.
+<div />
+
+Como vimos antes, uma union permite múltiplos tipos:
 
 ```ts {monaco}
 type ID = string | number;
