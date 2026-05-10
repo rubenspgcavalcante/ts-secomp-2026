@@ -1,6 +1,6 @@
 # Objetos
 
-```ts
+```ts twoslash
 const user: {
   name: string;
   age: number;

@@ -17,193 +17,181 @@ routeAlias: modulo-2
 - [Utility Types](#/32)
 
 ---
-src: ./01-slide-1.md
+src: ./01-union-types.md
 ---
 
 ---
-src: ./02-modulo-ii.md
+src: ./02-union-types.md
 ---
 
 ---
-src: ./03-agenda.md
+src: ./03-narrowing.md
 ---
 
 ---
-src: ./04-union-types.md
+src: ./04-intersection-types.md
 ---
 
 ---
-src: ./05-union-types.md
+src: ./05-intersection-types.md
 ---
 
 ---
-src: ./06-narrowing.md
+src: ./06-template-literal-types.md
 ---
 
 ---
-src: ./07-intersection-types.md
+src: ./07-template-literal-types.md
 ---
 
 ---
-src: ./08-intersection-types.md
+src: ./08-generics.md
 ---
 
 ---
-src: ./09-template-literal-types.md
+src: ./09-sem-generics.md
 ---
 
 ---
-src: ./10-template-literal-types.md
+src: ./10-com-generics.md
 ---
 
 ---
-src: ./11-generics.md
+src: ./11-inferencia-de-generics.md
 ---
 
 ---
-src: ./12-sem-generics.md
+src: ./12-generics-em-types.md
 ---
 
 ---
-src: ./13-com-generics.md
+src: ./13-exemplo.md
 ---
 
 ---
-src: ./14-inferencia-de-generics.md
+src: ./14-constraints.md
 ---
 
 ---
-src: ./15-generics-em-types.md
+src: ./15-keyof.md
 ---
 
 ---
-src: ./16-exemplo.md
+src: ./16-keyof.md
 ---
 
 ---
-src: ./17-constraints.md
+src: ./17-typeof.md
 ---
 
 ---
-src: ./18-keyof.md
+src: ./18-keyof-plus-typeof.md
 ---
 
 ---
-src: ./19-keyof.md
+src: ./19-mapped-types.md
 ---
 
 ---
-src: ./20-typeof.md
+src: ./20-exemplo.md
 ---
 
 ---
-src: ./21-keyof-plus-typeof.md
+src: ./21-conditional-types.md
 ---
 
 ---
-src: ./22-mapped-types.md
+src: ./22-exemplo.md
 ---
 
 ---
-src: ./23-exemplo.md
+src: ./23-infer.md
 ---
 
 ---
-src: ./24-conditional-types.md
+src: ./24-exemplo.md
 ---
 
 ---
-src: ./25-exemplo.md
+src: ./25-null-e-undefined.md
 ---
 
 ---
-src: ./26-infer.md
+src: ./26-strictnullchecks.md
 ---
 
 ---
-src: ./27-exemplo.md
+src: ./27-void.md
 ---
 
 ---
-src: ./28-null-e-undefined.md
+src: ./28-never.md
 ---
 
 ---
-src: ./29-strictnullchecks.md
+src: ./29-never.md
 ---
 
 ---
-src: ./30-void.md
+src: ./30-utility-types.md
 ---
 
 ---
-src: ./31-never.md
+src: ./31-partial.md
 ---
 
 ---
-src: ./32-never.md
+src: ./32-exemplo.md
 ---
 
 ---
-src: ./33-utility-types.md
+src: ./33-required.md
 ---
 
 ---
-src: ./34-partial.md
+src: ./34-readonly.md
 ---
 
 ---
-src: ./35-exemplo.md
+src: ./35-record.md
 ---
 
 ---
-src: ./36-required.md
+src: ./36-pick.md
 ---
 
 ---
-src: ./37-readonly.md
+src: ./37-omit.md
 ---
 
 ---
-src: ./38-record.md
+src: ./38-exclude.md
 ---
 
 ---
-src: ./39-pick.md
+src: ./39-parameters.md
 ---
 
 ---
-src: ./40-omit.md
+src: ./40-returntype.md
 ---
 
 ---
-src: ./41-exclude.md
+src: ./41-awaited.md
 ---
 
 ---
-src: ./42-parameters.md
+src: ./42-exemplo-real.md
 ---
 
 ---
-src: ./43-returntype.md
+src: ./43-recap.md
 ---
 
 ---
-src: ./44-awaited.md
+src: ./44-proximos-passos.md
 ---
 
 ---
-src: ./45-exemplo-real.md
----
-
----
-src: ./46-recap.md
----
-
----
-src: ./47-proximos-passos.md
----
-
----
-src: ./48-obrigado.md
+src: ./45-obrigado.md
 ---

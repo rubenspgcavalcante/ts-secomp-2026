@@ -19,7 +19,7 @@ const user: User = {
 
 const address: Address = {
   postCode: "123-456",
-  city: "Fortress",
+  city: "Saint Binary of Hexadecity",
   country: "Republic of IT",
 };
 ```

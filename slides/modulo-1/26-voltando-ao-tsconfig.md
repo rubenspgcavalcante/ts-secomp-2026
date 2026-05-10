@@ -1,6 +1,8 @@
 # Voltando ao tsconfig
 
-Vamos abrir e ver o que foi gerado:
+Agora que estudamos os tipos vamos a prática, mas primeiro!
+
+Vamos fazer o setup certo para nosso ambiente. Vamos abrir e ver o que foi gerado no tsconfig:
 
 <div max-h-80 overflow-auto>
 

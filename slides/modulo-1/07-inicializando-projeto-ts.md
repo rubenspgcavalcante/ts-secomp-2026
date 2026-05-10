@@ -1,5 +1,7 @@
 # Inicializando projeto TS
 
+<div />
+
 Utilizaremos o cliente npx (utilitario do npm para executar binarios) e passar a flag de inicialização para o compilador:
 
 ```bash

@@ -1,3 +1,4 @@
 {
-  "slidev.include": ["**/slides.md", "slides/modulo-1/index.md"]
+  "slidev.include": ["**/slides.md", "slides/modulo-1/index.md"],
+  "js/ts.tsdk.path": "node_modules\\typescript\\lib"
 }

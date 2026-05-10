@@ -1,11 +1,13 @@
-# Welcome to [Slidev](https://github.com/slidevjs/slidev)!
+# Mini Curso TypeScript - Secomp 2026 UECE
+
+Para ver os [slides para o Mini Curso, clique aqui](https://rubenspgcavalcante.github.io/ts-secomp-2026/)!
+
+## Rodando Localmente
 
 To start the slide show:
 
-- `npm install`
-- `npm run dev`
+- `pnpm install`
+- `pnpm run dev`
 - visit <http://localhost:3030>
 
-Edit the [slides.md](./slides.md) to see the changes.
-
-Learn more about Slidev at the [documentation](https://sli.dev/).
+Edite o arquivo [slides.md](./slides.md) para ver as modificacoes.

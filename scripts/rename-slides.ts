@@ -2,52 +2,77 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { Command } from "commander";
 
 type RenameOperation = {
   oldFilename: string;
   newFilename: string;
   oldPath: string;
   newPath: string;
+  currentNumber: number;
 };
 
-const args = process.argv.slice(2);
+const program = new Command();
 
-const targetDir = args.find((arg) => !arg.startsWith("--"));
+program
+  .argument("<targetDir>")
+  .option("--increment <number>")
+  .option("--decrement <number>")
+  .option("--start <number>")
+  .option("--end <number>")
+  .parse();
 
-const incrementArg = args.find((arg) => arg.startsWith("--increment="));
+const options = program.opts<{
+  increment?: string;
+  decrement?: string;
+  start?: string;
+  end?: string;
+}>();
 
-const decrementArg = args.find((arg) => arg.startsWith("--decrement="));
+const [targetDir] = program.args;
 
 if (!targetDir) {
-  console.error("Usage: npm run rename -- ./slides/modulo-1 --increment=1");
+  console.error(
+    "Usage: npm run rename -- ./slides/modulo-1 --increment 1 --start 5 --end 10",
+  );
 
   process.exit(1);
 }
 
-if (incrementArg && decrementArg) {
+if (options.increment && options.decrement) {
   console.error("Use either --increment or --decrement.");
+
+  process.exit(1);
+}
+
+const increment = options.increment ? Number(options.increment) : undefined;
+
+const decrement = options.decrement ? Number(options.decrement) : undefined;
+
+if (increment !== undefined && !Number.isInteger(increment)) {
+  console.error("--increment must be an integer");
+
+  process.exit(1);
+}
+
+if (decrement !== undefined && !Number.isInteger(decrement)) {
+  console.error("--decrement must be an integer");
 
   process.exit(1);
 }
 
 let delta = 0;
 
-if (incrementArg) {
-  delta = Number(incrementArg.replace("--increment=", ""));
+if (increment !== undefined) {
+  delta = increment;
 }
 
-if (decrementArg) {
-  delta = -Number(decrementArg.replace("--decrement=", ""));
-}
-
-if (!Number.isInteger(delta)) {
-  console.error("Increment/decrement must be integers.");
-
-  process.exit(1);
+if (decrement !== undefined) {
+  delta = -decrement;
 }
 
 if (delta === 0) {
-  console.error("Delta cannot be zero.");
+  console.error("You must provide either --increment or --decrement");
 
   process.exit(1);
 }
@@ -64,18 +89,72 @@ const files = fs
   .readdirSync(absoluteDir)
   .filter((file) => /^\d+-.*\.md$/.test(file));
 
+if (files.length === 0) {
+  console.error("No slide files found.");
+
+  process.exit(1);
+}
+
+/**
+ * Extract slide numbers
+ */
+const slideNumbers = files
+  .map((file) => {
+    const match = file.match(/^(\d+)/);
+
+    return match ? Number(match[1]) : 0;
+  })
+  .filter(Boolean);
+
+const minSlide = Math.min(...slideNumbers);
+const maxSlide = Math.max(...slideNumbers);
+
+/**
+ * Optional range
+ */
+const start = options.start ? Number(options.start) : minSlide;
+
+const end = options.end ? Number(options.end) : maxSlide;
+
+if (!Number.isInteger(start)) {
+  console.error("--start must be an integer");
+
+  process.exit(1);
+}
+
+if (!Number.isInteger(end)) {
+  console.error("--end must be an integer");
+
+  process.exit(1);
+}
+
+if (start > end) {
+  console.error("--start cannot be greater than --end");
+
+  process.exit(1);
+}
+
 const renames: RenameOperation[] = [];
 
 for (const file of files) {
   const match = file.match(/^(\d+)(-.*\.md)$/);
 
-  if (!match) continue;
+  if (!match) {
+    continue;
+  }
 
   const [, number, rest] = match;
 
-  const current = Number(number);
+  const currentNumber = Number(number);
 
-  const next = current + delta;
+  /**
+   * Apply only inside range
+   */
+  if (currentNumber < start || currentNumber > end) {
+    continue;
+  }
+
+  const next = currentNumber + delta;
 
   if (next <= 0) {
     console.warn(`Skipping ${file}: resulting number would be <= 0`);
@@ -92,6 +171,7 @@ for (const file of files) {
     newFilename,
     oldPath: path.join(absoluteDir, file),
     newPath: path.join(absoluteDir, newFilename),
+    currentNumber,
   });
 }
 
@@ -100,10 +180,10 @@ for (const file of files) {
  */
 renames.sort((a, b) => {
   if (delta > 0) {
-    return b.oldFilename.localeCompare(a.oldFilename);
+    return b.currentNumber - a.currentNumber;
   }
 
-  return a.oldFilename.localeCompare(b.oldFilename);
+  return a.currentNumber - b.currentNumber;
 });
 
 /**

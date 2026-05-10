@@ -1,4 +1,6 @@
-# E interfaces podem ser extendidas
+# Interfaces podem ser extendidas
+
+<div />
 
 Conceitos básicos de herança:
 

@@ -1,8 +1,8 @@
 # Afinal qual a diferença?
 
-Type é mais poderoso
+### Type é mais poderoso
 
-type consegue representar:
+`type` consegue representar:
 
 - unions
 - primitives

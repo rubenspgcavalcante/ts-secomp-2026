@@ -6,20 +6,17 @@ import { List } from "lucide-vue-next";
 const { $slidev } = useSlideContext();
 
 const currentRoute = computed(() => {
-  return $slidev.nav.currentRoute.path;
+  return $slidev.nav.currentPath;
 });
 
 const backLink = computed(() => {
   const route = currentRoute.value;
 
-  /**
-   * Slides iniciais e índices:
-   * não mostrar botão
-   */
   if (
     route === "/" ||
     route === "/1" ||
     route === "/2" ||
+    route === "/3" ||
     route === "/home" ||
     route === "/modulo-1" ||
     route === "/modulo-2"
@@ -27,16 +24,10 @@ const backLink = computed(() => {
     return null;
   }
 
-  /**
-   * Slides módulo 1
-   */
   if ($slidev.nav.currentPage >= 4 && $slidev.nav.currentPage <= 50) {
     return "/modulo-1";
   }
 
-  /**
-   * Slides módulo 2
-   */
   if ($slidev.nav.currentPage >= 51) {
     return "/modulo-2";
   }
@@ -54,6 +45,7 @@ const backLink = computed(() => {
     >
       <div class="relative group">
         <Link
+          v-if="backLink"
           :to="backLink"
           class="!border-none hover:!border-none !no-underline hover:!no-underline"
         >
