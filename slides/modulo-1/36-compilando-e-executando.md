@@ -7,7 +7,7 @@ node dist/index.js
 
 <div p-b-4 />
 
-> "Existe uma forma mais direta?"
+> <BadgeQuestionMark inline /> "Existe uma forma mais direta?"
 
 Sim:
 

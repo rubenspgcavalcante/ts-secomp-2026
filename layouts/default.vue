@@ -41,9 +41,9 @@ const backLink = computed(() => {
     <slot />
 
     <footer
-      class="absolute bottom-0 left-0 right-0 flex items-center justify-between px-6 py-3 text-sm opacity-70"
+      class="absolute bottom-0 left-0 right-0 flex items-center justify-end px-6 py-3 text-sm opacity-70"
     >
-      <div class="relative group">
+      <div class="relative group p-r-4">
         <Link
           v-if="backLink"
           :to="backLink"

@@ -1,7 +1,11 @@
 # null e undefined
 
 ```ts {monaco}
-let value: string | null = null;
+let nullishValue: string | null = null;
 
-value = "hello";
+nullishValue = "hello";
+
+let value: string | undefined;
+
+console.log(value?.toUpperCase());
 ```

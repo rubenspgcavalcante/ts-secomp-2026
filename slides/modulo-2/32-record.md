@@ -10,3 +10,5 @@ const permissions: Record<Role, string[]> = {
   user: ["read"],
 };
 ```
+
+Uma forma generica de definir objetos onde a chave e valor se mantém constantes

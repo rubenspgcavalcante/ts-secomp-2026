@@ -1,9 +1,16 @@
 # strictNullChecks
 
-```ts {monaco}
+```ts twoslash
 const user = null;
 
 console.log(user.name);
 ```
 
-❌ Object is possibly 'null'
+Mesmo que declaremos um 'union type', valores estáticos constantes
+são avaliados em tempo de compilação:
+
+```ts twoslash
+const user: { name: string } | null = null;
+
+console.log(user?.name);
+```

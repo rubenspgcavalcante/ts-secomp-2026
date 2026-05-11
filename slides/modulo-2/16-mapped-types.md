@@ -1,6 +1,6 @@
 # Mapped Types
 
-Transformam tipos dinamicamente.
+Mapeia chaves como propriedades de um objeto:
 
 ```ts twoslash
 type Options<T> = {
