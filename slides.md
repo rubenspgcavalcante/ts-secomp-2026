@@ -13,15 +13,8 @@ mdc: true
 # Secomp 2026 - Minicurso TypeScript
 
 ---
-
-# Primeiramente, Quem Sou Eu?
-
-- Rubens Pinheiro Gonçalves Cavalcante
-- Vice President Lead Software Engineer @ JP Morgan Chase
-- Ex Facebook / Meta
-- ~18 anos trabalhando com TI, 5 anos na Alemanha, quase 5 no Reino Unido
-- Usando TypeScript desde sua versão 1.0 (~2015)
-- Turma 2007.2 Ciência da Computação - UECE
+src: ./slides/intro/quem-sou-eu.md
+---
 
 ---
 
@@ -29,14 +22,25 @@ mdc: true
 
 Ministrado em dois módulos de 2h cada:
 
-<div class="flex items-center gap-2 p-b-8">
-  <BookMarked class="w-4 h-4" />
+<div flex items-center gap-2 p-b-4>
+  <BookMarked w-4 h-4 />
   <Link to="/modulo-1">Módulo I - TypeScript Básico</Link>
 </div>
 
-<div class="flex items-center gap-2">
-  <BookMarked class="w-4 h-4" />
+<div flex items-center gap-2 p-b-8>
+  <BookMarked w-4 h-4 />
   <Link to='modulo-2' >Módulo II - TypeScript Avançado</Link>
+</div>
+
+O código fonte dessa apresentação se econtra em:
+
+<div flex items-center gap-2>
+  <Github w-4 h-4 />
+  <a
+    href="https://github.com/rubenspgcavalcante/ts-secomp-2026"
+    target="_blank"
+    class="no-underline hover:underline"
+  >github.com/rubenspgcavalcante/ts-secomp-2026</a>
 </div>
 
 ---
