@@ -52,7 +52,7 @@ Rubens Pinheiro Gonçalves Cavalcante
 
 - Quase 5 anos no Reino Unido 🍵🫖👑
 
-- Usando TypeScript desde a versão 1.0 (~2015)
+- Usando TypeScript desde a versão 1 (~2015)
 
 - Turma 2007.2 Ciência da Computação - UECE
 
