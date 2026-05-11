@@ -14,6 +14,7 @@ routeAlias: modulo-2
 - <Link to="/64">keyof</Link>
 - <Link to="/70">as const</Link>
 - <Link to="/80">Utility Types</Link>
+- <Link to="/93">Exemplos Avançados</Link>
 
 ---
 src: ./01-union-types-recap.md
@@ -176,13 +177,33 @@ src: ./40-exemplo-real.md
 ---
 
 ---
-src: ./41-recap.md
+src: ./41-exemplos-avancados.md
 ---
 
 ---
-src: ./42-proximos-passos.md
+src: ./42-flatten-recursivo.md
 ---
 
 ---
-src: ./43-obrigado.md
+src: ./43-inversao-recursiva.md
+---
+
+---
+src: ./44-extracao-recursiva.md
+---
+
+---
+src: ./45-ts-doom.md
+---
+
+---
+src: ./46-recap.md
+---
+
+---
+src: ./47-proximos-passos.md
+---
+
+---
+src: ./48-obrigado.md
 ---
