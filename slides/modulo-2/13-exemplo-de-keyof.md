@@ -1,4 +1,4 @@
-# keyof
+# Exemplo de keyof
 
 ```ts {monaco}
 type User = {

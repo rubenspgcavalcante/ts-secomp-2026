@@ -1,8 +1,9 @@
-# Intersection Types
+# Extendendo com Intersections
 
 <div/>
 
-Combina múltiplos tipos. Uma forma de extender eles:
+Como intersections requerem que ambos os tipos se satisfaça.
+Uma forma de extender tipos é usando eles:
 
 ```ts {monaco} {class:'max-h-90 overflow-auto'}
 type User = {

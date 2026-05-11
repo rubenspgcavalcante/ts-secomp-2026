@@ -1,6 +1,6 @@
 # Narrowing
 
-Um aspecto interessante: o compilador TypeScript é esperto o bastante para intuir tipos automaticamente baseado em contexto:
+Um aspecto interessante de Union Types: o compilador TypeScript é esperto o bastante para intuir tipos automaticamente baseado em contexto:
 
 ```ts {monaco}
 function print(value: string | number) {

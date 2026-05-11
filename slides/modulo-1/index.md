@@ -104,97 +104,101 @@ src: ./22-union-types.md
 ---
 
 ---
-src: ./23-literal-types.md
+src: ./23-intersection-types.md
 ---
 
 ---
-src: ./24-any.md
+src: ./24-literal-types.md
 ---
 
 ---
-src: ./25-unknown.md
+src: ./25-any.md
 ---
 
 ---
-src: ./26-voltando-ao-tsconfig.md
+src: ./26-unknown.md
 ---
 
 ---
-src: ./27-muita-informacao,-vamos-focar-no-basico.md
+src: ./27-voltando-ao-tsconfig.md
 ---
 
 ---
-src: ./28-estrutura-basica.md
+src: ./28-muita-informacao,-vamos-focar-no-basico.md
 ---
 
 ---
-src: ./29-primeiro-arquivo-ts.md
+src: ./29-estrutura-basica.md
 ---
 
 ---
-src: ./30-compilando.md
+src: ./30-primeiro-arquivo-ts.md
 ---
 
 ---
-src: ./31-output.md
+src: ./31-compilando.md
 ---
 
 ---
-src: ./32-setup-vscode-+-typescript.md
+src: ./32-output.md
 ---
 
 ---
-src: ./33-o-vscode-usa-typescript-server-(tsserver).md
+src: ./33-setup-vscode-+-typescript.md
 ---
 
 ---
-src: ./34-exemplo-de-correcao-simples.md
+src: ./34-o-vscode-usa-typescript-server-(tsserver).md
 ---
 
 ---
-src: ./35-hello-world-completo.md
+src: ./35-exemplo-de-correcao-simples.md
 ---
 
 ---
-src: ./36-compilando-e-executando.md
+src: ./36-hello-world-completo.md
 ---
 
 ---
-src: ./37-integracao-com-bundlers.md
+src: ./37-compilando-e-executando.md
 ---
 
 ---
-src: ./38-webpack-+-ts.md
+src: ./38-integracao-com-bundlers.md
 ---
 
 ---
-src: ./39-exemplo-webpack.config.js.md
+src: ./39-webpack-+-ts.md
 ---
 
 ---
-src: ./40-configurando-esm.md
+src: ./40-exemplo-webpack.config.js.md
 ---
 
 ---
-src: ./41-alternativa-moderna-vite.md
+src: ./41-configurando-esm.md
 ---
 
 ---
-src: ./42-por-que-vite-e-popular.md
+src: ./42-alternativa-moderna-vite.md
 ---
 
 ---
-src: ./43-fluxo-moderno.md
+src: ./43-por-que-vite-e-popular.md
 ---
 
 ---
-src: ./44-recapitulando.md
+src: ./44-fluxo-moderno.md
 ---
 
 ---
-src: ./45-proximo-modulo.md
+src: ./45-recapitulando.md
 ---
 
 ---
-src: ./46-obrigado.md
+src: ./46-proximo-modulo.md
+---
+
+---
+src: ./47-obrigado.md
 ---

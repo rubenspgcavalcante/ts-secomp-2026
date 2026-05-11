@@ -3,6 +3,7 @@
 A vezes uma variável pode aceitar mais de um tipo:
 
 ```ts {monaco}
+// Funciona como um "OU"
 let value: string | number;
 
 value = "hello";
