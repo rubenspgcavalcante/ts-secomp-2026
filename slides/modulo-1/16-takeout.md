@@ -5,9 +5,9 @@
 Types conseguem fazer tudo o que interfaces fazem, porém o inverso
 não é verdadeiro.
 
-Como mencionado, Interfaces foram pensadas em classes, mas JS é orientada a objetos sem a necessidade delas.
-
-<div p-b-4 />
+<div class="flex justify-center py-8">
+  <img src='/type-are-better.jpg' w-52 >
+</div>
 
 ### Mas nunca... nunca?
 

@@ -2,8 +2,9 @@
 
 ```ts twoslash
 function identity<T>(value: T): T {
-  return value
+  return value;
 }
 
-const result = identity('hello')
+// Coloque o mouse em cima de `result` para ver o tipo inferido
+const result = identity("hello");
 ```

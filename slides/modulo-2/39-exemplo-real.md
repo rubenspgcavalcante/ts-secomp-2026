@@ -3,11 +3,9 @@
 ```ts {monaco}
 async function fetchUser() {
   return {
-    name: 'Lucas'
-  }
+    name: "Lucas",
+  };
 }
 
-type User = Awaited<
-  ReturnType<typeof fetchUser>
->
+type User = Awaited<ReturnType<typeof fetchUser>>;
 ```

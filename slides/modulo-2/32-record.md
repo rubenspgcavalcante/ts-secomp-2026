@@ -3,10 +3,10 @@
 Cria objetos tipados.
 
 ```ts {monaco}
-type Role = 'admin' | 'user'
+type Role = "admin" | "user";
 
 const permissions: Record<Role, string[]> = {
-  admin: ['read', 'write'],
-  user: ['read']
-}
+  admin: ["read", "write"],
+  user: ["read"],
+};
 ```

@@ -1,9 +1,9 @@
 # strictNullChecks
 
 ```ts {monaco}
-const user = null
+const user = null;
 
-console.log(user.name)
+console.log(user.name);
 ```
 
 ❌ Object is possibly 'null'

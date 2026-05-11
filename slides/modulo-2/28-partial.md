@@ -4,9 +4,9 @@ Torna propriedades opcionais.
 
 ```ts twoslash
 type User = {
-  name: string
-  age: number
-}
+  name: string;
+  age: number;
+};
 
-type PartialUser = Partial<User>
+type PartialUser = Partial<User>;
 ```

@@ -4,9 +4,9 @@ Obtém as chaves de um tipo.
 
 ```ts twoslash
 type User = {
-  name: string
-  age: number
-}
+  name: string;
+  age: number;
+};
 
-type Keys = keyof User
+type Keys = keyof User;
 ```

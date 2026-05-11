@@ -2,18 +2,20 @@
 
 ```ts {monaco}
 type ApiResponse<T> = {
-  data: T
-  success: boolean
-}
+  data: T;
+  success: boolean;
+  statusCode: number;
+};
 
 type User = {
-  name: string
-}
+  name: string;
+};
 
 const response: ApiResponse<User> = {
   data: {
-    name: 'Lucas'
+    name: "Lucas",
   },
-  success: true
-}
+  success: true,
+  statusCode: 200,
+};
 ```

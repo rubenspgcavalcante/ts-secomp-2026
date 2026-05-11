@@ -172,25 +172,29 @@ src: ./39-exemplo-webpack.config.js.md
 ---
 
 ---
-src: ./40-alternativa-moderna-vite.md
+src: ./40-configurando-esm.md
 ---
 
 ---
-src: ./41-por-que-vite-e-popular.md
+src: ./41-alternativa-moderna-vite.md
 ---
 
 ---
-src: ./42-fluxo-moderno.md
+src: ./42-por-que-vite-e-popular.md
 ---
 
 ---
-src: ./43-recapitulando.md
+src: ./43-fluxo-moderno.md
 ---
 
 ---
-src: ./44-proximo-modulo.md
+src: ./44-recapitulando.md
 ---
 
 ---
-src: ./45-obrigado.md
+src: ./45-proximo-modulo.md
+---
+
+---
+src: ./46-obrigado.md
 ---

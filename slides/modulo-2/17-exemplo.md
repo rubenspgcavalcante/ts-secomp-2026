@@ -2,11 +2,11 @@
 
 ```ts {monaco}
 type Features = {
-  darkMode: () => void
-  notifications: () => void
-}
+  darkMode: () => void;
+  notifications: () => void;
+};
 
 type FeatureFlags = {
-  [K in keyof Features]: boolean
-}
+  [K in keyof Features]: boolean;
+};
 ```

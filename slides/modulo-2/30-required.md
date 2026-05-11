@@ -4,8 +4,8 @@ Torna tudo obrigatório.
 
 ```ts twoslash
 type User = {
-  name?: string
-}
+  name?: string;
+};
 
-type FullUser = Required<User>
+type FullUser = Required<User>;
 ```

@@ -2,8 +2,8 @@
 
 ```ts twoslash
 function sum(a: number, b: number) {
-  return a + b
+  return a + b;
 }
 
-type Result = ReturnType<typeof sum>
+type Result = ReturnType<typeof sum>;
 ```

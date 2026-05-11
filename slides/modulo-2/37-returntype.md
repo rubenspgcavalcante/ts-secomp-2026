@@ -5,9 +5,9 @@ Obtém o retorno de uma função.
 ```ts twoslash
 function getUser() {
   return {
-    name: 'Lucas'
-  }
+    name: "Lucas",
+  };
 }
 
-type User = ReturnType<typeof getUser>
+type User = ReturnType<typeof getUser>;
 ```

@@ -3,8 +3,5 @@
 Permite inferir tipos internamente.
 
 ```ts twoslash
-type GetReturn<T> =
-  T extends (...args: any[]) => infer R
-    ? R
-    : never
+type GetReturn<T> = T extends (...args: any[]) => infer R ? R : never;
 ```

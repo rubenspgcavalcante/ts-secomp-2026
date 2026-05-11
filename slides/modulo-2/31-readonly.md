@@ -2,12 +2,12 @@
 
 ```ts {monaco}
 type User = {
-  name: string
-}
+  name: string;
+};
 
 const user: Readonly<User> = {
-  name: 'Lucas'
-}
+  name: "Lucas",
+};
 
 // user.name = 'João'
 ```

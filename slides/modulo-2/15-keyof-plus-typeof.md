@@ -2,9 +2,9 @@
 
 ```ts {monaco}
 const colors = {
-  primary: '#000',
-  secondary: '#fff'
-}
+  primary: "#000",
+  secondary: "#fff",
+};
 
-type ColorKeys = keyof typeof colors
+type ColorKeys = keyof typeof colors;
 ```

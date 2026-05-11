@@ -4,10 +4,10 @@ Remove propriedades.
 
 ```ts twoslash
 type User = {
-  id: number
-  name: string
-  password: string
-}
+  id: number;
+  name: string;
+  password: string;
+};
 
-type SafeUser = Omit<User, 'password'>
+type SafeUser = Omit<User, "password">;
 ```
